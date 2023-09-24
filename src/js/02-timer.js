@@ -19,11 +19,11 @@ const options = {
     minuteIncrement: 1,
     onClose(selectedDates) {
     if (selectedDates[0].getTime() < options.defaultDate) {
-    Notiflix.Notify.failure('Please, choose a date in the future');
+      Notiflix.Notify.failure('Please, choose a date in the future');
     } else {
-    startBtn.disabled = false;
+      startBtn.disabled = false;
     }
-},
+  },
 };
 
 const datePicker = flatpickr(picker, options);
@@ -52,29 +52,29 @@ startBtn.addEventListener('click', () => {
 
 function convertMs(ms) {
   // Number of milliseconds per unit of time
-    const second = 1000;
+  const second = 1000;
   const minute = second * 60;
   const hour = minute * 60;
   const day = hour * 24;
 
   // Remaining days
-    const days = addLeadingZero(Math.floor(ms / day));
+  const days = addLeadingZero(Math.floor(ms / day));
   // Remaining hours
-    const hours = addLeadingZero(Math.floor((ms % day) / hour));
+  const hours = addLeadingZero(Math.floor((ms % day) / hour));
   // Remaining minutes
-    const minutes = addLeadingZero(Math.floor(((ms % day) % hour) / minute));
+  const minutes = addLeadingZero(Math.floor(((ms % day) % hour) / minute));
   // Remaining seconds
-    const seconds = addLeadingZero(
+  const seconds = addLeadingZero(
     Math.floor((((ms % day) % hour) % minute) / second)
-);
+  );
 
-return { days, hours, minutes, seconds };
+  return { days, hours, minutes, seconds };
 }
 
 function addLeadingZero(value) {
-if (value < 10) {
+  if (value < 10) {
     return String(value).padStart(2, '0');
-} else {
+  } else {
     return value;
-}
+  }
 }
