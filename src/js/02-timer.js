@@ -57,13 +57,13 @@ function convertMs(ms) {
   const hour = minute * 60;
   const day = hour * 24;
 
-  // Remaining days
+  // days
   const days = addLeadingZero(Math.floor(ms / day));
-  // Remaining hours
+  // hours
   const hours = addLeadingZero(Math.floor((ms % day) / hour));
-  // Remaining minutes
+  // minutes
   const minutes = addLeadingZero(Math.floor(((ms % day) % hour) / minute));
-  // Remaining seconds
+  // seconds
   const seconds = addLeadingZero(
     Math.floor((((ms % day) % hour) % minute) / second)
   );
